@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                        xmlns:models="clr-namespace:fourplaceproject.Model"
+                        xmlns:vm="clr-namespace:fourplaceproject.ViewModel"
+                        xmlns:local="clr-namespace:fourplaceproject"
+                        x:Class="fourplaceproject.View.PlaceDetail"
+                        x:DataType="vm:PlaceDetailViewModel">
+    <StackLayout Orientation="Vertical">
+        <ScrollView>
+            <StackLayout>
+                <Entry Text="{Binding MonComment}"
+                       Placeholder="Votre commentaire"
+                       Margin="10,0" 
+                       FontSize="20" 
+                       TextColor="Black"/>
+
+                <Button Text="AjouterCommentaire"
+                        Command="{Binding AjouterCommentaire}"/> 
+                
+        
+                <Label Text="{Binding Title}"  
+                       FontSize="24" 
+                       HorizontalOptions="CenterAndExpand" 
+                       Margin="0,30"/>
+                
+
+                <Label Text="{Binding Description}"
+                       Margin="10,0" 
+                       FontSize="20" 
+                       TextColor="Black"/>
+                <Image Source="{Binding ImageUrl}" 
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="10,0"/>
+            </StackLayout>
+        </ScrollView>
+
+
+        <ListView x:Name="ListeComments" HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Commentaires}" Margin="10,0">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:CommentItem">
+                    <ViewCell>
+                        <Frame HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Start"
+                               >
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start"
+                                         Orientation="Horizontal">
+
+                                <StackLayout Orientation="Vertical"
+                                             Grid.Column="0"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Center"
+                                             >
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Author.FirstName}" 
+                                           TextColor="Black" 
+                                           LineBreakMode="WordWrap" 
+                                           FontSize="16"
+                                           />
+                                        <Label Text="{Binding Author.LastName}" 
+                                           TextColor="Black" 
+                                           LineBreakMode="WordWrap" 
+                                           FontSize="16"
+                                           />
+                                    </StackLayout>
+                                    <Label Text="{Binding Text}" 
+                                           TextColor="Black" 
+                                           LineBreakMode="WordWrap" 
+                                           FontSize="20"
+                                           />
+                                    <Label Text="{Binding Date}" 
+                                           TextColor="Black" 
+                                           LineBreakMode="WordWrap" 
+                                           FontSize="16"
+                                           />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</mvvm:BaseContentPage>

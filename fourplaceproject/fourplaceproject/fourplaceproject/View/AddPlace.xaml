@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:mvvm="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+                        xmlns:vm="clr-namespace:fourplaceproject.ViewModel"
+                        xmlns:models="clr-namespace:fourplaceproject.Model"
+                        xmlns:local="clr-namespace:fourplaceproject"
+                        x:DataType="vm:AddPlaceViewModel"
+                        x:Class="fourplaceproject.View.AddPlace">
+
+
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+
+            <Entry Text="{Binding Title}"
+               Placeholder="Titre"/>
+
+            <Editor Text="{Binding Description}"
+                Placeholder="Description"
+                Margin="10,0"
+                HeightRequest="200"/>
+
+            <Image Source="{Binding ImageUrl}"
+                   Margin="10,0" 
+                   WidthRequest="120" 
+                   HeightRequest="120"/>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Button  Text="Choisir Photo"
+                Command="{Binding ChoisirPhoto}" />
+
+                <Button  Text="Appareil Photo"
+                Command="{Binding PrendrePhoto }" />
+            </StackLayout>
+
+            
+            <Button Text="Ajouter le lieu"
+                Command="{Binding Ajouter}"
+                />
+        </StackLayout>
+    </ScrollView>
+</mvvm:BaseContentPage>
