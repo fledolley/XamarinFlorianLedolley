@@ -13,5 +13,5 @@ Travail réalisé :
 https://github.com/natko36/XamarinFlorianLedolley/
 
 
-Travail réalisé avec l'aide de Guillaume Lannes 
+Travail réalisé 
 
