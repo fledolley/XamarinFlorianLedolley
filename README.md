@@ -11,7 +11,3 @@ Travail réalisé :
 - Possibilité de modifier un mdp
 
 https://github.com/natko36/XamarinFlorianLedolley/
-
-
-Travail réalisé 
-
